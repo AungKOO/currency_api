@@ -1,13 +1,10 @@
 // todo: import logic or something else
 
-const data = {
-  currencies: [{ rate: 2980, currency_format: "USD" }],
-  yearMonth: "2022/12",
-  day: "14",
-};
+import getTodayCurrencies from "../servcies/today";
 
-let getAllCurrencies = (req: any, res: any) => {
+let getAllCurrencies = async (req: any, res: any) => {
   console.log(req.body)
+  let data:any = await getTodayCurrencies()
   console.log("It reached the route")
 return res.status(200).json(data);
 };

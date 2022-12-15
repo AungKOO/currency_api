@@ -1,5 +1,4 @@
 "use strict";
-// todo: import logic or something else
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,19 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var today_1 = require("../servcies/today");
-var getAllCurrencies = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var data;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                console.log(req.body);
-                return [4 /*yield*/, (0, today_1["default"])()];
-            case 1:
-                data = _a.sent();
-                console.log("It reached the route");
-                return [2 /*return*/, res.status(200).json(data)];
-        }
-    });
-}); };
-exports["default"] = getAllCurrencies;
+var data = {
+    currencies: [{ rate: 2980, currency_format: "USD" }],
+    yearMonth: "2022/12",
+    day: "14"
+};
+var getTodayCurrencies = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    return [2 /*return*/, data];
+}); }); };
+exports["default"] = getTodayCurrencies;
