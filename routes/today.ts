@@ -1,4 +1,4 @@
-import getAllCurrencies from "../handlers/handlers";
+import getAllCurrencies from "../handlers/todayHandler";
 
 const router = require("express").Router();
 

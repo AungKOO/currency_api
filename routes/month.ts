@@ -1,7 +1,6 @@
+import getMontlyRate from "../handlers/monthHandler"
+
 const router = require('express').Router()
-router.get('/month/:id.json', (req:any, res:any) =>
-{
-    console.log(req.params.id)
-})
+router.get('/month/:id.json', getMontlyRate)
 
 export default router

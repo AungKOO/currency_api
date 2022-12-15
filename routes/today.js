@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var handlers_1 = require("../handlers/handlers");
+var todayHandler_1 = require("../handlers/todayHandler");
 var router = require("express").Router();
-router.get("/day/today.json", handlers_1["default"]);
+router.get("/day/today.json", todayHandler_1["default"]);
 exports["default"] = router;
