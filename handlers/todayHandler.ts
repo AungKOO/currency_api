@@ -1,14 +1,22 @@
-// todo: import logic or something else
+import CurrencyService from "../servcies/currency";
+class CurrencyHandler {
+  private service: CurrencyService;
 
-import getTodayRate from "../servcies/today";
+  constructor(sevc: CurrencyService) {
+    this.service = sevc;
+  }
 
+  async todayHandler(req:any, res:any) {
+    // console.log(req.params.id);
+    // const id = req.params.id;
+    try {
+      // let data = await getMonthlyRate();
 
-let getAllCurrencies = async (req: any, res: any) => {   // * get today all currencies rate
-  console.log(req.body)
-  let data:any = await getTodayRate()
-  console.log("It reached the handlers")
-return res.status(200).json(data);
-};
-
-
-export default getAllCurrencies;
+      return res.status(200).json("hello");
+    } catch (err) {
+      console.log(err);
+      return res.sendStatus(400);
+    }
+  }
+}
+export default CurrencyHandler;
