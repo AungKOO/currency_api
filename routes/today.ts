@@ -7,7 +7,7 @@ class TodayRoute {
         this.service = srv
         const currencyHandler = new CurrencyHandler(this.service);
         console.log("currency handler in route: ", currencyHandler)
-        router.get("/day/today.json",currencyHandler.todayHandler)
+        router.get("/day/today.json",currencyHandler.todayHandler.bind(this))
     }
 }
 

@@ -12,7 +12,7 @@ class CurrencyHandler {
     try {
 
       console.log("It entered the todayHandler");
-      console.log(this);
+      this.service.getTodayData()
 
       return res.status(200).json("hello");
     } catch (err) {
@@ -26,6 +26,11 @@ class CurrencyHandler {
     console.log(this)
     return res.status(200).json(id)
 
+  }
+  dateHandler(req: any, res: any) {
+    const id = req.params.id;
+    this.service.getspecificDateData(id)
+    return res.status(200).json(id)
   }
 }
 export default CurrencyHandler;
