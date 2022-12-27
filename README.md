@@ -15,12 +15,67 @@ https://localhost:8000/api/v1/day/today.json
 
 #### monthly rate
 
-https://localhost:8000/api/v1/month/{yyyymm}.json
+format: https://localhost:8000/api/v1/month/{yyyymm}.json
+https://localhost:8000/api/v1/month/202202.json
 
 #### rate for specific date
 
-https://localhost:8000/api/v1/date/{yyyymmdd}.json
+format: https://localhost:8000/api/v1/date/{yyyymmdd}.json
+https://localhost:8000/api/v1/date/20221101.json
 
 ## JSON_format
 
+Specific date or today အတွက် JSON format:
 
+`
+[
+    {
+        "date": "2022-12-01T06:12:40.991Z",
+        "currency": {
+            "currencies": [
+                {
+                    "rate": 2935,
+                    "currency_format": "USD"
+                }
+            ]
+        }
+    }
+]
+`
+
+month အတွက် JSON format:
+
+
+`
+[
+    {
+        "date": "2022-12-01T06:12:40.991Z",
+        "currency": {
+            "currencies": [
+                {
+                    "rate": 2935,
+                    "currency_format": "USD"
+                }
+            ]
+        }
+    },
+    {
+        "date": "2022-12-02T06:12:40.991Z",
+        "currency": {
+            "currencies": [
+                {
+                    "rate": 2935,
+                    "currency_format": "USD"
+                }
+            ]
+        }
+    },
+    ...
+    ]
+`
+
+if there is no data in Database:
+server will return **empty array** `[]`
+
+if there is an invalid request from client,
+server will return **Bad Request** `400`
