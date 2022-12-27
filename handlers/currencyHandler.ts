@@ -6,25 +6,38 @@ class CurrencyHandler {
     this.service = sevc
   }
 
-  todayHandler(req: any, res: any) {
+  async todayHandler(req: any, res: any) {
     try {
-      this.service.getTodayData()
-      return res.status(200).json('hello')
+      let data = await this.service.getTodayData()
+      let result = data.rows
+      return res.status(200).json(result)
     } catch (err) {
       console.error(err)
       return res.sendStatus(400)
     }
   }
-  monthHandler(req: any, res: any) {
-    const id = req.params.id
-    console.log(req.params.id)
-    console.log(this)
-    return res.status(200).json(id)
+  async monthHandler(req: any, res: any) {
+    try {
+      const id: String = req.params.id
+      let data = await this.service.getMonthlyData(id)
+      let result = data.rows
+      return res.status(200).json(result)
+    } catch (e) {
+      console.error(e)
+      return res.sendStatus(400)
+    }
   }
-  dateHandler(req: any, res: any) {
-    const id = req.params.id
-    this.service.getspecificDateData(id)
-    return res.status(200).json(id)
+
+  async dateHandler(req: any, res: any) {
+    try {
+      const id = req.params.id
+      let data = await this.service.getspecificDateData(id)
+      const result = data.rows
+      return res.status(200).json(result)
+    } catch (e) {
+      console.error(e)
+      return res.sendStatus(400)
+    }
   }
 }
 export default CurrencyHandler
