@@ -11,9 +11,9 @@ const router = express.Router()
 
 client.connect().then(() => console.log('connected'))
 const currencyService = new CurrencyService(client)
-const todayRoute = new TodayRoute(currencyService, router)
-const monthRoute = new MonthRoute(currencyService, router)
-const dateRoute = new DateRoute(currencyService, router)
+new TodayRoute(currencyService, router)
+new MonthRoute(currencyService, router)
+new DateRoute(currencyService, router)
 
 app.use(bodyParser.json())
 app.use('/api/v1', router)
