@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  postgres:
+    restart: always
+    image: postgres:10.14
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hiworld      
+      - POSTGRES_DB=exchange_rate
+    volumes:
+      - ./postgres-data/postgres:/var/lib/postgresql/data
+    ports:
+      - "25432:5432"
+    networks:
+      - db_nw
+  backend:
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=postgres
+      - SERVER_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=hiworld
+      - DB_NAME=exchange_rate
+    links:
+      - postgres
+    networks:
+      - db_nw
+
+    depends_on:
+      - postgres
+    ports:
+      - '8000:8000'
+    command: ["node","./server.js"]
+networks:
+    db_nw:
+      driver: bridge
