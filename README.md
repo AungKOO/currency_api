@@ -5,9 +5,14 @@
 This project is intended for practicing and learning based on typescript, postgres and express.
 You can get daily rate of the MMK per USD.
 
+### Prerequsites
+
+1. Node - v18.9.0
+2. Typescript
+3. Database client
+
+
 ## Usage
-
-
 
 ### daily rate
 
@@ -27,8 +32,7 @@ https://localhost:8000/api/v1/date/20221101.json
 
 Specific date or today အတွက် JSON format:
 
-`
-[
+`[
     {
         "date": "2022-12-01T06:12:40.991Z",
         "currency": {
@@ -40,14 +44,11 @@ Specific date or today အတွက် JSON format:
             ]
         }
     }
-]
-`
+]`
 
 month အတွက် JSON format:
 
-
-`
-[
+`[
     {
         "date": "2022-12-01T06:12:40.991Z",
         "currency": {
@@ -71,8 +72,7 @@ month အတွက် JSON format:
         }
     },
     ...
-    ]
-`
+    ]`
 
 if there is no data in Database:
 server will return **empty array** `[]`
