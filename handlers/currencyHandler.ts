@@ -6,11 +6,15 @@ class CurrencyHandler {
     this.service = sevc
   }
 
-  async todayHandler(req: any, res: any) {
+  async todayHandler(_: any, res: any) {
     try {
       let data = await this.service.getTodayData()
       let result = data.rows
-      return res.status(200).json(result)
+      let type: String = result.length === 0 ? 'no data' : 'success'
+      return res.status(200).json({
+        type,
+        data: result
+      })
     } catch (err) {
       console.error(err)
       return res.sendStatus(400)
@@ -21,7 +25,12 @@ class CurrencyHandler {
       const id: String = req.params.id
       let data = await this.service.getMonthlyData(id)
       let result = data.rows
-      return res.status(200).json(result)
+
+      let type: String = result.length === 0 ? 'no data' : 'success'
+      return res.status(200).json({
+        type,
+        data: result
+      })
     } catch (e) {
       console.error(e)
       return res.sendStatus(400)
@@ -33,7 +42,12 @@ class CurrencyHandler {
       const id = req.params.id
       let data = await this.service.getspecificDateData(id)
       const result = data.rows
-      return res.status(200).json(result)
+      let type: String = result.length === 0 ? 'no data' : 'success'
+
+      return res.status(200).json({
+        type,
+        data: result
+      })
     } catch (e) {
       console.error(e)
       return res.sendStatus(400)

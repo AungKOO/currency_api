@@ -1,7 +1,7 @@
 import { Client } from 'pg'
 
 class CurrencyService {
-  private connection: Client = null
+  private connection: Client
   constructor(con: Client) {
     this.connection = con
   }
