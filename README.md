@@ -1,15 +1,15 @@
 # currency_api
 
-## Getting_started
-
-This project is intended for practicing and learning based on typescript, postgres and express.
+This project is intended for practicing and being built based on typescript, postgres and express.
 You can get daily rate of the MMK per USD.
 
-### Prerequsites
+### How to start the project:
 
-1. Node - v18.9.0
-2. Typescript
-3. Database client
+- First, you clone the project by following command:
+  `https://github.com/AungKOO/currency_api.git`
+- Install node version 18.9.0^ or use nvm to upgrade your node version.
+- Install [Docker](https://www.docker.com/)
+
 
 ## Usage
 
