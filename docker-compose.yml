@@ -14,6 +14,19 @@ services:
       - "25432:5432"
     networks:
       - db_nw
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - '4000:80'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=postgres@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    networks:
+      - db_nw
   backend:
     restart: unless-stopped
     build:
