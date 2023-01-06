@@ -6,6 +6,7 @@ class Currency {
   constructor() {
     return this
   }
+
   public getId(): string {
     return this.id;
   }

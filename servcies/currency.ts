@@ -13,7 +13,7 @@ class CurrencyService {
       )
     } catch (e) {
       console.error(e)
-      return Promise.reject([])
+      return Promise.reject({})
     }
   }
   getMonthlyData(id: String): Promise<any> {
@@ -24,7 +24,7 @@ class CurrencyService {
       )
     } catch (e) {
       console.error(e)
-      return Promise.reject([])
+      return Promise.reject({})
     }
   }
   getspecificDateData(id: String): Promise<any> {
@@ -36,7 +36,7 @@ class CurrencyService {
       )
     } catch (e) {
       console.error(e)
-      return Promise.reject([])
+      return Promise.reject({})
     }
   }
 }
