@@ -5,6 +5,7 @@ ADD package.json /app/currency_api/
 COPY ./build /app/currency_api/
 ADD ./migrations/currencies.sql /app/currency_api/migrations/
 ADD ./migrations/function.sql /app/currency_api/migrations/
+ADD ./migrations/migration_data.csv /app/currency_api/migrations/
 RUN npm i
 
 # RUN npm run prod

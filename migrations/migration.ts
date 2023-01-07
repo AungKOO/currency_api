@@ -21,6 +21,7 @@ async function readSQL(file: String) {
   dbClient.connect()
   await dbClient.query(uuidFunc)
    await dbClient.query(tableName)
+   await dbClient.query("COPY currencies FROM 'migrations/migration_data.csv' DELIMITER ',' CSV HEADER;")
    console.log("success");
    dbClient.dispatch()
   })(client);
