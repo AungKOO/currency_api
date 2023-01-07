@@ -18,10 +18,11 @@ async function readSQL(file: String) {
 (async  (dbClient) => {
   const tableName:String = await readSQL("./currencies.sql");
   const uuidFunc: String = await readSQL("./function.sql")
-  client.connect()
+  dbClient.connect()
   await dbClient.query(uuidFunc)
    await dbClient.query(tableName)
    console.log("success");
+   dbClient.dispatch()
   })(client);
 
 
