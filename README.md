@@ -53,14 +53,12 @@ Specific date or today အတွက် JSON format:
     "data": [
         {
             "date": "2022-12-11T06:12:40.991Z",
-            "currency": {
-                "currencies": [
+            "currency": [
                     {
                         "rate": 2935,
                         "currency_format": "USD"
                     }
                 ]
-            }
         }
     ]
 }
