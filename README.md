@@ -9,7 +9,21 @@ You can get daily rate of the MMK per USD.
   `https://github.com/AungKOO/currency_api.git`
 - Install node version 18.9.0^ or use nvm to upgrade your node version.
 - Install [Docker](https://www.docker.com/)
-
+- Run your docker app
+- open the project folder (`currency_api/`) in your code editor
+- RUN the following command:
+  - `npm run prod-build`
+  - `docker-compose build`
+  - `docker-compose up -d`
+- Enter the postgres to open the connection for database:
+  - `localhost:4000`
+  - username and password will be in pgadmin service in docker-compose file for login
+  - then register database server
+    - hostname/address will be postgres and password will be in docker-compose(in postgres service) file.
+  - open the exchage_rate database connection
+  - ![login](images/login_screen.png)
+  - ![connection](images/connection_screen.png)
+  - ![connected](images/connected_screen.png)
 
 ## Usage
 
@@ -20,18 +34,20 @@ You can get daily rate of the MMK per USD.
 #### monthly rate
 
 format: <https://localhost:8000/api/v1/month/{yyyymm}.json>
+
 <https://localhost:8000/api/v1/month/202202.json>
 
 #### rate for specific date
 
 format: <https://localhost:8000/api/v1/date/{yyyymmdd}.json>
+
 <https://localhost:8000/api/v1/date/20221101.json>
 
 ## JSON_format
 
 Specific date or today အတွက် JSON format:
 
-```
+```javascript
 {
     "type": "success",
     "data": [
@@ -52,55 +68,50 @@ Specific date or today အတွက် JSON format:
 
 month အတွက် JSON format:
 
-```
+```javascript
 {
     "type": "success",
     "data": [
         {
             "date": "2022-10-01T04:12:40.991Z",
-            "currency": {
-                "currencies": [
+            "currency": [
                     {
                         "rate": 2900,
                         "currency_format": "USD"
                     }
                 ]
-            }
+
         },
         {
             "date": "2022-10-02T04:12:40.991Z",
-            "currency": {
-                "currencies": [
+            "currency": [
                     {
                         "rate": 2895,
                         "currency_format": "USD"
                     }
                 ]
-            }
+
         },
         ...
         {
             "date": "2022-10-29T04:12:40.991Z",
-            "currency": {
-                "currencies": [
+            "currency": [
                     {
                         "rate": 2915,
                         "currency_format": "USD"
                     }
                 ]
-            }
+
         },
         {
             "date": "2022-10-30T04:12:40.991Z",
-            "currency": {
-                "currencies": [
+            "currency": [
                     {
                         "rate": 2917,
                         "currency_format": "USD"
                     }
                 ]
             }
-        }
     ]
 }
 ```
@@ -110,4 +121,3 @@ server will return `{type: "no data", data:[]}`
 
 if there is an invalid request from client,
 server will return **Bad Request** `400`
-
