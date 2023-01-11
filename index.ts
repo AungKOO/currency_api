@@ -9,7 +9,7 @@ import DateRoute from './routes/date'
 const app = express()
 const router = express.Router()
 
-client.connect().then(() => console.log('connected'))
+client.connect()
 const currencyService = new CurrencyService(client)
 new TodayRoute(currencyService, router)
 new MonthRoute(currencyService, router)
