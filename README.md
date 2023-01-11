@@ -1,8 +1,12 @@
-# currency_api
+<!-- # currency_api -->
 
 This project is intended for practicing and being built based on typescript, postgres and express.
 You can get daily rate of the MMK per USD.
 
+## Prequisites
+- [node](https://nodejs.org/en/)
+- [git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
 ### How to start the project:
 
 - First, you clone the project by following command:
@@ -12,10 +16,13 @@ You can get daily rate of the MMK per USD.
 - Run your docker app
 - open the project folder (`currency_api/`) in your code editor
 - RUN the following command:
-  - `npm run prod-build`
-  - `docker-compose build`
-  - `docker-compose up -d`
-- Enter the postgres to open the connection for database:
+  - `npm i` to get the packages
+  - `npm run prod-build` to build the production
+  - `docker-compose build` to build the docker image
+  - `docker-compose up -d` to run services and containers
+- After running the services and containers, run the following command for data seeding:
+  - `docker-compose exec backend node migrations/migration.js`
+- Enter the pgAdmin to check the connection for database:
   - `localhost:4000`
   - username and password will be in pgadmin service in docker-compose file for login
   - then register database server
