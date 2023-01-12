@@ -3,7 +3,7 @@
 This project is intended for practicing and being built based on typescript, postgres and express.
 You can get daily rate of the MMK per USD.
 
-## Prequisites
+## Prerequisites
 - [node](https://nodejs.org/en/)
 - [git](https://git-scm.com/)
 - [Docker](https://www.docker.com/)

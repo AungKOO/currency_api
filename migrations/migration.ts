@@ -23,7 +23,7 @@ async function readSQL(file: String) {
   dbClient.connect()
   await dbClient.query(uuidFunc)
   await dbClient.query(tableName)
-  await dbClient.query(insertQuery) // need to update to prevent sql injection
+  await dbClient.query(insertQuery) 
   dbClient.end()
   console.log('success') // check database connection, query and con close
 })(client)
